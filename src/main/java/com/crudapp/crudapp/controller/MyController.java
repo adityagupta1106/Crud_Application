@@ -12,7 +12,8 @@ import java.util.List;
 
 
 @RestController
-public class MyController {
+public class
+MyController {
     @Autowired
     private CourseService courseService;
     // get the courses
