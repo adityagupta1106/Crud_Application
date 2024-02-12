@@ -11,9 +11,10 @@ import lombok.Data;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long Id;
     private String firstName;
     private String lastName;
-    private  int age;
-    private String courseId;
+    private int age;
+    private long courseId;
+
 }

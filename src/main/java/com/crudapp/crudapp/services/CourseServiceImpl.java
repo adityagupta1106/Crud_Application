@@ -1,7 +1,10 @@
 package com.crudapp.crudapp.services;
 
 import com.crudapp.crudapp.CourseDao;
+import com.crudapp.crudapp.UserRepo;
 import com.crudapp.crudapp.entities.Course;
+import com.crudapp.crudapp.entities.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +13,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+//@RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService
  {
 
      //List<Course> list;
+     @Autowired
+     private  UserRepo userRepo;
      @Autowired
      private CourseDao courseDao;
      public CourseServiceImpl()
@@ -79,6 +85,10 @@ public class CourseServiceImpl implements CourseService
          return courseDao.findByDescription(description);
      }
 
+     public List<Object[]> getUsersAndCoursesByCourseId(Long courseId) {
+         return userRepo.FindUsersAndCoursesByCourseId(courseId);
+
+     }
 
 //     @Override
 //     public List<Course> findByDescription(String description) {

@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Course {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+   // @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
     private String description;
