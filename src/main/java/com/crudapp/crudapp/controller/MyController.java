@@ -3,6 +3,7 @@ package com.crudapp.crudapp.controller;
 import com.crudapp.crudapp.entities.Course;
 import com.crudapp.crudapp.services.CourseService;
 import com.crudapp.crudapp.services.CourseServiceImpl;
+import com.crudapp.crudapp.services.UserCourseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,10 +62,10 @@ MyController {
     public List<Object[]> getUsersAndCoursesByCourseId(@RequestParam Long courseId){
         return courseServices.getUsersAndCoursesByCourseId(courseId);
     }
-
-//    @GetMapping("/by-desciption")
-//    public List<Course> getbyDescription(@RequestParam String description){
-//        return this.courseService.findByDescription(description);
-//    }
+    @GetMapping("/user-course")
+    public UserCourseDto getUserAndCourseByUserId(@RequestParam Long Id)
+    {
+        return courseServices.getUserAndCourseByUserId(Id);
+    }
 
 }

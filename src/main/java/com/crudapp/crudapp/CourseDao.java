@@ -9,5 +9,7 @@ import java.util.List;
 public interface CourseDao extends JpaRepository<Course,Long> {
 @Query(value="SELECT * FROM Course WHERE description=:description", nativeQuery = true)
     List<Course> findByDescription(String description);
+@Query(value = "SELECT * FROM Course WHERE id=:Id",nativeQuery = true)
+Course FindCourseById(Long Id);
 
 }

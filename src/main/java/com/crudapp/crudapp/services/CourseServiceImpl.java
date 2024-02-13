@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService
  {
 
@@ -22,12 +22,7 @@ public class CourseServiceImpl implements CourseService
      private  UserRepo userRepo;
      @Autowired
      private CourseDao courseDao;
-     public CourseServiceImpl()
-     {
-//         list=new ArrayList<>();
-//         list.add(new Course(145, "Java Core Course", "this is course of java"));
-//         list.add(new Course(149, "Spring Boot Course", "this is course of spring boot"));
-     }
+
     @Override
     public List<Course> getCourses()
     {
@@ -90,10 +85,21 @@ public class CourseServiceImpl implements CourseService
 
      }
 
-//     @Override
-//     public List<Course> findByDescription(String description) {
-//         Course one=courseDao.findbyDescrition(description);
-//         return null;
-//     }
+     public UserCourseDto getUserAndCourseByUserId(Long Id)
+     {
+         Long courseId= userRepo.FindCourseIdbyUserId(Id);
+
+         if(courseId!=null)
+         {
+             Course course=courseDao.FindCourseById(courseId);
+             User user= userRepo.findById(Id).orElse(null);
+
+             if(user != null && course != null)
+             {
+                 return  new UserCourseDto(user.getId(), user.getFirstName(), user.getLastName(), user.getAge(),course.getId(),course.getTitle(),course.getDescription());
+             }
+         }
+         return  null;
+     }
 
  }
