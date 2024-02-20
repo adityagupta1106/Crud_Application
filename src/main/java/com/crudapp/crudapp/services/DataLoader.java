@@ -14,8 +14,8 @@ public class DataLoader {
 
     private final UserRepo userRepo;
 
-    @PostConstruct
-    public void loadRandomData() {
+//    @PostConstruct
+//    public void loadRandomData() {
 //        Random random=new Random();
 //        String[] firstNames={"Aditya","Ashutosh","Alice","Aman"};
 //        String[] lastNames={"Gupta","Kumar","rai","Tandon"};
@@ -27,10 +27,10 @@ public class DataLoader {
 //            user.setFirstName(firstNames[random.nextInt(firstNames.length)]);
 //            user.setLastName(lastNames[random.nextInt(lastNames.length)]);
 //            user.setAge(random.nextInt(10)+40);
-//            user.setCourseId(random.nextInt(1,2000));
+//            user.setCourseId(random.nextInt(2000));
 //
 //            userRepo.save(user);
-//        }
+//       }
 
-    }
+  //  }
 }
