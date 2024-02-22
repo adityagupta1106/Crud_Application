@@ -61,7 +61,8 @@ UserController {
     @PutMapping("/users")
     public ResponseEntity<Optional<User>> updateUser(@RequestBody PutRequestBody requestBody) throws JsonProcessingException {
         Long userId = requestBody.getUserId();
-        Optional<User> updatedUser = userserviceImpl.updateUser(userId, requestBody);
+        userserviceImpl.updateUser(userId, requestBody);
+        Optional<User> updatedUser=userRepo.findById(userId);
         if (updatedUser.isPresent()) {
             return ResponseEntity.ok(updatedUser);
         } else {

@@ -77,18 +77,8 @@ public class UserServiceImpl {
 //        return null;
 //    }
 
-    public Optional<User> updateUser(Long userId, PutRequestBody requestBody) throws JsonProcessingException {
-        Optional<User> optionalUser = userrepo.findById(userId);
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            LocalDateTime date = LocalDateTime.now(ZoneId.systemDefault());
-            user.setLastUpdatedAt(date);
-            userrepo.save(user);
-            return userDao.update(userId, requestBody);
-        } else {
-            // Handle the case where user with userId is not found
-            return Optional.empty();
-        }
+    public void updateUser(Long userId, PutRequestBody requestBody) throws JsonProcessingException {
+            userDao.update(userId, requestBody);
     }
 
 

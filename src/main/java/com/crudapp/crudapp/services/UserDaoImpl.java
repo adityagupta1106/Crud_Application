@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
@@ -41,7 +42,7 @@ public class UserDaoImpl {
 //        auditHistory("User created",sql,user,new Object[]{user.getFirstName(),user.getLastName(),user.getAge(),user.getCourseId(),user.getId()});
 //        return user;
 //    }
-    public Optional<User> update(Long userId, PutRequestBody requestBody) throws JsonProcessingException {
+    public void update(Long userId, PutRequestBody requestBody) throws JsonProcessingException {
         //,?> newFields= (Map<String, String>) requestBody.getFieldsToBeUpdated();
         FieldsToBeUpdated fieldsToBeUpdated = requestBody.getFieldsToBeUpdated();
         StringBuilder sql = new StringBuilder("UPDATE user SET ");
@@ -79,7 +80,11 @@ public class UserDaoImpl {
             }
         }
 
-        sql.setLength(sql.length() - 2);
+        sql.append("last_updated_at=?");
+        LocalDateTime dateTime= LocalDateTime.now(ZoneId.systemDefault());
+        params.add(String.valueOf(dateTime));
+
+//        sql.setLength(sql.length() - 2);
         remarks.setLength(remarks.length());
 
         sql.append(" WHERE id =?");
@@ -95,10 +100,9 @@ public class UserDaoImpl {
 //            }
 //        });
 
-        Optional<User> optionalUser = userRepo.findById(userId);
-        User user = optionalUser.get();
+
         auditHistory(remarks.toString(), sql.toString(), userId, params);
-        return Optional.of(user);
+
     }
 
     //String name= user.getFirstName();
