@@ -1,13 +1,12 @@
 package com.crudapp.crudapp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
 
 @Entity
 @Getter
@@ -20,4 +19,7 @@ public class Course {
     private long id;
     private String title;
     private String description;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="last_updated_At")
+    private Date lastUpdatedAt;
 }

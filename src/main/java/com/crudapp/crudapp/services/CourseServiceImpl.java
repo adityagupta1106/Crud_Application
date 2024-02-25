@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService
  {
 
@@ -22,12 +23,12 @@ public class CourseServiceImpl implements CourseService
      private  UserRepo userRepo;
      @Autowired
      private CourseDao courseDao;
-     public CourseServiceImpl()
+
+     private void updateLastUpdatedAt(Course course)
      {
-//         list=new ArrayList<>();
-//         list.add(new Course(145, "Java Core Course", "this is course of java"));
-//         list.add(new Course(149, "Spring Boot Course", "this is course of spring boot"));
+         course.setLastUpdatedAt(new Date());
      }
+
     @Override
     public List<Course> getCourses()
     {
@@ -37,47 +38,31 @@ public class CourseServiceImpl implements CourseService
 
      @Override
      public Course getCourse(long courseId) {
-//         Course c=null;
-//         for(Course course:list)
-//         {
-//             if(course.getId()==courseId)
-//             {
-//                 c=course;
-//                 break;
-//             }
-//         }
-         //return c;
+
          Course one = courseDao.getOne(courseId);
          return one;
      }
 
      @Override
      public Course addCourse(Course course) {
-//         list.add(course);
-//         return course;
+         updateLastUpdatedAt(course);
+         //course.setId(courseId);
         courseDao.save(course);
         return course;
 
      }
 
      @Override
-     public Course updateCourse(Course course) {
-//         list.forEach(e->{
-//             if(e.getId()==course.getId())
-//             {
-//                 e.setTitle(course.getTitle());
-//                 e.setDescription(course.getDescription());
-//             }
-//         });
-         return course;
+     public Course updateCourse(Course course,Long courseId) {
+         updateLastUpdatedAt(course);
+         course.setId(courseId);
+         return courseDao.save(course);
      }
 
      @Override
      public void deleteCourse(long parseLong) {
-        // list=this.list.stream().filter(e->e.getId()!=parseLong).collect(Collectors.toList());
          Course entity=courseDao.getOne(parseLong);
          courseDao.delete(entity);
-
      }
 
      @Override
@@ -90,10 +75,21 @@ public class CourseServiceImpl implements CourseService
 
      }
 
-//     @Override
-//     public List<Course> findByDescription(String description) {
-//         Course one=courseDao.findbyDescrition(description);
-//         return null;
-//     }
+     public UserCourseDto getUserAndCourseByUserId(Long Id)
+     {
+         Long courseId= userRepo.FindCourseIdbyUserId(Id);
+
+         if(courseId!=null)
+         {
+             Course course=courseDao.FindCourseById(courseId);
+             User user= userRepo.findById(Id).orElse(null);
+
+             if(user != null && course != null)
+             {
+                 return  new UserCourseDto(user.getId(), user.getFirstName(), user.getLastName(), user.getAge(),course.getId(),course.getTitle(),course.getDescription());
+             }
+         }
+         return  null;
+     }
 
  }
