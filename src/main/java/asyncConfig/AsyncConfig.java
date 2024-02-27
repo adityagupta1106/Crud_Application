@@ -1,22 +1,27 @@
 package asyncConfig;
 
-import org.apache.catalina.Executor;
+import java.util.concurrent.Executor;
+import com.crudapp.crudapp.UserRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
+// create a logger which collect a application log files
 @Configuration
 @EnableAsync
-public class AsyncCongi {
+@Slf4j
+public class AsyncConfig {
     @Bean(name = "taskExecutor")
     public Executor taskExecutor() {
+        log.info("Creating async Task Executor");
         ThreadPoolTaskExecutor executor =new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(10);
-        executor.setMaxPoolSize(20);
-        executor.setQueueCapacity(20);
+        executor.setCorePoolSize(30);
+        executor.setMaxPoolSize(50);
+        executor.setQueueCapacity(100);
         executor.setThreadNamePrefix("LoadDataThread-");
         executor.initialize();
-        return (Executor) executor;
+
+        return executor;
     }
 }
