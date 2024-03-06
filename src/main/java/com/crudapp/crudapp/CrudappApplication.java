@@ -1,52 +1,52 @@
 package com.crudapp.crudapp;
-
 import asyncConfig.AsyncConfig;
 import com.crudapp.crudapp.services.DataLoader;
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.task.TaskExecutor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
 
 @SpringBootApplication
-// todo about this annotation
-//@EnableAsync
 @Slf4j
+@EnableAsync
 @Import(AsyncConfig.class)
-public class CrudappApplication implements CommandLineRunner {
+public class CrudappApplication  {
     @Autowired
     private DataLoader dataLoader;
-
+    @Value("${data.total-users}")
+     private int totalUsers;
+    @Value("${data.thread-count}")
+    private int threadCount;
     public static void main(String[] args) {
         SpringApplication.run(CrudappApplication.class, args);
     }
-
-    @Override
-    public void run(String... args) throws InterruptedException {
-        int totalUsers = 500000;
-        int thread = 30;
-
-        int userPerThread = totalUsers / thread;
+    @PostConstruct
+    public void loadData() throws InterruptedException {
+        int userPerThread = totalUsers / threadCount;
+        int usersForLastThread = userPerThread + totalUsers % threadCount; // Handling remainder users
+        //CountDownLatch latch = new CountDownLatch(threadCount);
 
         long start = System.currentTimeMillis();
-        CountDownLatch latch = new CountDownLatch(thread);
-        for (int i = 0; i < thread; i++) {
+
+        for (int i = 0; i < threadCount; i++) {
+            if (i == threadCount - 1) {
+                dataLoader.loadRandomData(usersForLastThread); // Last thread takes remainder
+            } else {
+                dataLoader.loadRandomData(userPerThread);
+            }
             log.info("Started Thread No : " + i);
-            dataLoader.loadRandomData(userPerThread, latch);
         }
 
-        latch.await();
+      //  latch.await(); // Wait for all threads to complete
         long end = System.currentTimeMillis();
-        log.info("Total Time Taken : " + (end - start));
+
+        log.info("Total Time Taken : " + (end - start) + " ms");
     }
 
 }
