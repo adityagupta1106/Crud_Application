@@ -24,17 +24,21 @@ public class DataLoader {
     private final UserRepo userRepo;
     @Async("taskExecutor")
     public  void loadRandomData(int count) {
-        try {
+
             for (int i = 0; i < count; i++) {
-                User user = generateRandomUser();
-                if (user != null) {
-                    userRepo.save(user);
+                try {
+                    User user = generateRandomUser();
+                    if (user != null) {
+                        synchronized (this) {
+                            userRepo.save(user);
+                        }
+                    }
+
+                } catch (Exception e) {
+                    log.error("An error occurred while saving user :", e);
+
                 }
             }
-        } catch (Exception e){
-            log.error("An error occurred while saving user :", e);
-
-        }
         //latch.countDown();
     }
 

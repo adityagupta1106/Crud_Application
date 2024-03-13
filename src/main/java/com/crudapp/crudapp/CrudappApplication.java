@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -26,7 +27,8 @@ public class CrudappApplication  {
     public static void main(String[] args) {
         SpringApplication.run(CrudappApplication.class, args);
     }
-    @PostConstruct
+   // @PostConstruct
+    @Transactional
     public void loadData() throws InterruptedException {
         int userPerThread = totalUsers / threadCount;
         int usersForLastThread = userPerThread + totalUsers % threadCount; // Handling remainder users

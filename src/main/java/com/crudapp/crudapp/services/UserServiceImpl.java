@@ -32,13 +32,7 @@ public class UserServiceImpl {
 
 
     public User addUser(User user) {
-        LocalDateTime localDateTime = LocalDateTime.now(ZoneId.systemDefault());
-        user.setLastUpdatedAt(localDateTime);
-        user.setCreatedAt(localDateTime);
-        userrepo.save(user);
-        // Create audit history for the added user
-        createAuditHistory(user);
-
+        userDao.save(user);
         return user;
 
     }
