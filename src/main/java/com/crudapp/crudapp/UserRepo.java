@@ -1,6 +1,9 @@
 package com.crudapp.crudapp;
 
 import com.crudapp.crudapp.entities.User;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -14,5 +17,6 @@ public interface UserRepo extends JpaRepository<User,Long> {
     @Query(value="SELECT course_id FROM User Where id= :Id",nativeQuery = true)
      Long FindCourseIdbyUserId(Long Id);
 
-
+    @Override
+    Page<User> findAll(Pageable pageable);
 }

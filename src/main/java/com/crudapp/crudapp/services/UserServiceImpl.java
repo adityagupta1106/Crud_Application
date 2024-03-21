@@ -37,19 +37,6 @@ public class UserServiceImpl {
 
     }
 
-    public void createAuditHistory(User user) {
-        // setting user audit history
-        LocalDateTime date = LocalDateTime.now(ZoneId.systemDefault());
-        UserAuditHistory userEntry = new UserAuditHistory();
-        userEntry.setUserId(user.getId());
-        userEntry.setCreatedAt(date);
-        userEntry.setUpdatedAt(date);
-        userEntry.setMetaData(null);
-        userEntry.setRemarks("New user created");
-        userAuditHistoryRepo.save(userEntry);
-
-
-    }
 
 //    public User updateUser(User user,Long userId) {
 //

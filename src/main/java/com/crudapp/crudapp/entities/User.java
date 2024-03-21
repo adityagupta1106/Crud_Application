@@ -7,17 +7,19 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
+    @Column(nullable = false)
     private String firstName;
+    @Column(nullable = false)
     private String lastName;
+    @Column(nullable = false)
     private int age;
+    @Column(nullable = false)
     private long courseId;
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime lastUpdatedAt;

@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,11 +44,20 @@ public class UserDaoImpl {
     public User save(User user) {
         final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+
         try {
+
+            // Check if age is null
+
+            if (user.getFirstName()==null) {
+                throw new IllegalArgumentException("first name cannot be null.");
+            }
+
             final String sql = "INSERT INTO users (firstname, lastname, age, course_id) VALUES (?, ?, ?, ?)";
             LocalDateTime localDateTime = LocalDateTime.now(ZoneId.systemDefault());
             user.setLastUpdatedAt(localDateTime);
             user.setCreatedAt(localDateTime);
+           // user.setFirstName(null);
             userRepo.save(user);
             // Create audit history for the added user
             List<String> params = new ArrayList<>();
@@ -57,16 +67,17 @@ public class UserDaoImpl {
             params.add(String.valueOf(user.getCourseId()));
             auditHistory("User created", sql, user.getId(), params);
             return user;
-        } catch (DataAccessException e) {
+        } catch (DataIntegrityViolationException e) {
             logger.error("An error occurred while saving the user to the database.", e);
+            throw e; // Re-throwing the caught exception after logging
+        } catch (IllegalArgumentException e) {
+            logger.error("Invalid user data: " + e.getMessage());
             throw e; // Re-throwing the caught exception after logging
         } catch (Exception e) {
             logger.error("An unexpected error occurred while processing the user data.", e);
             throw e; // Re-throwing the caught exception after logging
         }
     }
-
-
     @Transactional
     public void update(Long userId, PutRequestBody requestBody) throws JsonProcessingException {
 
@@ -136,7 +147,7 @@ public class UserDaoImpl {
         userEntry.setCreatedAt(optionalUser.get().getCreatedAt());
         userEntry.setUpdatedAt(date);
         userEntry.setMetaData(metaDataBuilder.toString());
-        userEntry.setRemarks(action);
+        userEntry.setRemarks(null);
         auditHistoryRepo.save(userEntry);
     }
 }

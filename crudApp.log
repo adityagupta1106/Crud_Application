@@ -1,222 +1,34 @@
-2024-03-13T11:48:55.607+05:30  INFO 82326 --- [main] com.crudapp.crudapp.CrudappApplication   : Starting CrudappApplication using Java 17.0.10 with PID 82326 (/Users/aditya2.gupta/Downloads/project/Crud_Application/target/classes started by aditya2.gupta in /Users/aditya2.gupta/Downloads/project/Crud_Application)
-2024-03-13T11:48:55.647+05:30  INFO 82326 --- [main] com.crudapp.crudapp.CrudappApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-03-13T11:48:57.625+05:30  INFO 82326 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-13T11:48:57.778+05:30  INFO 82326 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 3 JPA repository interfaces.
-2024-03-13T11:48:59.168+05:30  INFO 82326 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-03-13T11:48:59.200+05:30  INFO 82326 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-03-13T11:48:59.201+05:30  INFO 82326 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-03-13T11:48:59.340+05:30  INFO 82326 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-03-13T11:48:59.341+05:30  INFO 82326 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3468 ms
-2024-03-13T11:48:59.749+05:30  INFO 82326 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-13T11:48:59.914+05:30  INFO 82326 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-03-13T11:49:00.045+05:30  INFO 82326 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-03-13T11:49:00.699+05:30  INFO 82326 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-13T11:49:00.767+05:30  INFO 82326 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-13T11:49:02.206+05:30  INFO 82326 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15586843
-2024-03-13T11:49:02.210+05:30  INFO 82326 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-13T11:49:02.383+05:30  WARN 82326 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-13T11:49:04.629+05:30  INFO 82326 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-13T11:49:04.771+05:30  INFO 82326 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-13T11:49:05.322+05:30  INFO 82326 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-03-13T11:49:05.851+05:30  INFO 82326 --- [main] asyncConfig.AsyncConfig                  : Creating async Task Executor
-2024-03-13T11:49:05.922+05:30  WARN 82326 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-13T11:49:06.598+05:30  INFO 82326 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-03-13T11:49:06.615+05:30  INFO 82326 --- [main] com.crudapp.crudapp.CrudappApplication   : Started CrudappApplication in 12.257 seconds (process running for 13.555)
-2024-03-13T11:49:32.481+05:30  INFO 82326 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-13T11:49:32.482+05:30  INFO 82326 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-03-13T11:49:32.486+05:30  INFO 82326 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2024-03-13T11:49:32.989+05:30 ERROR 82326 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar []] with root cause
+2024-03-21T11:40:00.327+05:30  INFO 62946 --- [main] com.crudapp.crudapp.CrudappApplication   : Starting CrudappApplication using Java 17.0.10 with PID 62946 (/Users/aditya2.gupta/Downloads/project/Crud_Application/target/classes started by aditya2.gupta in /Users/aditya2.gupta/Downloads/project/Crud_Application)
+2024-03-21T11:40:00.352+05:30  INFO 62946 --- [main] com.crudapp.crudapp.CrudappApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-03-21T11:40:02.497+05:30  INFO 62946 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21T11:40:02.674+05:30  INFO 62946 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 3 JPA repository interfaces.
+2024-03-21T11:40:04.128+05:30  INFO 62946 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-03-21T11:40:04.160+05:30  INFO 62946 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-21T11:40:04.160+05:30  INFO 62946 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21T11:40:04.298+05:30  INFO 62946 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-21T11:40:04.298+05:30  INFO 62946 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3775 ms
+2024-03-21T11:40:04.680+05:30  INFO 62946 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21T11:40:04.865+05:30  INFO 62946 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21T11:40:04.973+05:30  INFO 62946 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-21T11:40:05.639+05:30  INFO 62946 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21T11:40:05.709+05:30  INFO 62946 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-21T11:40:06.656+05:30  INFO 62946 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eed46e9
+2024-03-21T11:40:06.659+05:30  INFO 62946 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-21T11:40:06.809+05:30  WARN 62946 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-21T11:40:09.005+05:30  INFO 62946 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21T11:40:09.150+05:30  INFO 62946 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21T11:40:09.761+05:30  INFO 62946 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-03-21T11:40:10.263+05:30  INFO 62946 --- [main] com.crudapp.crudapp.config.AsyncConfig   : Creating async Task Executor
+2024-03-21T11:40:10.342+05:30  WARN 62946 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-21T11:40:11.002+05:30  WARN 62946 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-java.sql.SQLSyntaxErrorException: Table 'crud_db.users' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988) ~[mysql-connector-j-8.3.0.jar:8.3.0]
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$3(JdbcTemplate.java:1002) ~[spring-jdbc-6.1.3.jar:6.1.3]
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658) ~[spring-jdbc-6.1.3.jar:6.1.3]
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1001) ~[spring-jdbc-6.1.3.jar:6.1.3]
-	at com.crudapp.crudapp.services.UserDaoImpl.save(UserDaoImpl.java:56) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.3.jar:6.1.3]
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.3.jar:6.1.3]
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.3.jar:6.1.3]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.3.jar:6.1.3]
-	at com.crudapp.crudapp.services.UserDaoImpl$$SpringCGLIB$$0.save(<generated>) ~[classes/:na]
-	at com.crudapp.crudapp.services.UserServiceImpl.addUser(UserServiceImpl.java:35) ~[classes/:na]
-	at com.crudapp.crudapp.controller.UserController.addUser(UserController.java:44) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:261) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:189) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Using generated security password: 0b0b1580-42ce-4418-a715-b7225026dae7
 
-2024-03-13T11:51:57.997+05:30  INFO 82464 --- [main] com.crudapp.crudapp.CrudappApplication   : Starting CrudappApplication using Java 17.0.10 with PID 82464 (/Users/aditya2.gupta/Downloads/project/Crud_Application/target/classes started by aditya2.gupta in /Users/aditya2.gupta/Downloads/project/Crud_Application)
-2024-03-13T11:51:58.012+05:30  INFO 82464 --- [main] com.crudapp.crudapp.CrudappApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-03-13T11:51:59.684+05:30  INFO 82464 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-13T11:51:59.834+05:30  INFO 82464 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125 ms. Found 3 JPA repository interfaces.
-2024-03-13T11:52:01.073+05:30  INFO 82464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-03-13T11:52:01.107+05:30  INFO 82464 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-03-13T11:52:01.107+05:30  INFO 82464 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-03-13T11:52:01.249+05:30  INFO 82464 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-03-13T11:52:01.250+05:30  INFO 82464 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3070 ms
-2024-03-13T11:52:01.597+05:30  INFO 82464 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-13T11:52:01.729+05:30  INFO 82464 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-03-13T11:52:01.797+05:30  INFO 82464 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-03-13T11:52:02.376+05:30  INFO 82464 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-13T11:52:02.424+05:30  INFO 82464 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-13T11:52:02.936+05:30  INFO 82464 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b07cad0
-2024-03-13T11:52:02.941+05:30  INFO 82464 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-13T11:52:03.039+05:30  WARN 82464 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-13T11:52:05.015+05:30  INFO 82464 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-13T11:52:05.104+05:30  INFO 82464 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-13T11:52:05.649+05:30  INFO 82464 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-03-13T11:52:06.102+05:30  INFO 82464 --- [main] asyncConfig.AsyncConfig                  : Creating async Task Executor
-2024-03-13T11:52:06.187+05:30  WARN 82464 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-13T11:52:06.802+05:30  INFO 82464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-03-13T11:52:06.818+05:30  INFO 82464 --- [main] com.crudapp.crudapp.CrudappApplication   : Started CrudappApplication in 10.062 seconds (process running for 11.235)
-2024-03-13T11:52:14.895+05:30  INFO 82464 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-13T11:52:14.896+05:30  INFO 82464 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-03-13T11:52:14.900+05:30  INFO 82464 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2024-03-13T11:57:58.563+05:30  INFO 82625 --- [main] com.crudapp.crudapp.CrudappApplication   : Starting CrudappApplication using Java 17.0.10 with PID 82625 (/Users/aditya2.gupta/Downloads/project/Crud_Application/target/classes started by aditya2.gupta in /Users/aditya2.gupta/Downloads/project/Crud_Application)
-2024-03-13T11:57:58.568+05:30  INFO 82625 --- [main] com.crudapp.crudapp.CrudappApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-03-13T11:58:00.149+05:30  INFO 82625 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-13T11:58:00.291+05:30  INFO 82625 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 3 JPA repository interfaces.
-2024-03-13T11:58:01.538+05:30  INFO 82625 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-03-13T11:58:01.567+05:30  INFO 82625 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-03-13T11:58:01.568+05:30  INFO 82625 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-03-13T11:58:01.688+05:30  INFO 82625 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-03-13T11:58:01.689+05:30  INFO 82625 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2933 ms
-2024-03-13T11:58:02.012+05:30  INFO 82625 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-13T11:58:02.126+05:30  INFO 82625 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-03-13T11:58:02.201+05:30  INFO 82625 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-03-13T11:58:02.653+05:30  INFO 82625 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-13T11:58:02.703+05:30  INFO 82625 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-13T11:58:03.231+05:30  INFO 82625 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@12e5d3e1
-2024-03-13T11:58:03.234+05:30  INFO 82625 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-13T11:58:03.325+05:30  WARN 82625 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-13T11:58:05.244+05:30  INFO 82625 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-13T11:58:05.385+05:30  INFO 82625 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-13T11:58:05.955+05:30  INFO 82625 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-03-13T11:58:06.407+05:30  INFO 82625 --- [main] asyncConfig.AsyncConfig                  : Creating async Task Executor
-2024-03-13T11:58:06.485+05:30  WARN 82625 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-13T11:58:07.032+05:30  INFO 82625 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-03-13T11:58:07.045+05:30  INFO 82625 --- [main] com.crudapp.crudapp.CrudappApplication   : Started CrudappApplication in 9.669 seconds (process running for 10.964)
-2024-03-13T11:58:18.365+05:30  INFO 82625 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-13T11:58:18.370+05:30  INFO 82625 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-03-13T11:58:18.376+05:30  INFO 82625 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2024-03-13T12:15:47.015+05:30  INFO 83194 --- [main] com.crudapp.crudapp.CrudappApplication   : Starting CrudappApplication using Java 17.0.10 with PID 83194 (/Users/aditya2.gupta/Downloads/project/Crud_Application/target/classes started by aditya2.gupta in /Users/aditya2.gupta/Downloads/project/Crud_Application)
-2024-03-13T12:15:47.022+05:30  INFO 83194 --- [main] com.crudapp.crudapp.CrudappApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-03-13T12:15:48.707+05:30  INFO 83194 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-13T12:15:48.850+05:30  INFO 83194 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 3 JPA repository interfaces.
-2024-03-13T12:15:50.056+05:30  INFO 83194 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-03-13T12:15:50.090+05:30  INFO 83194 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-03-13T12:15:50.090+05:30  INFO 83194 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-03-13T12:15:50.257+05:30  INFO 83194 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-03-13T12:15:50.258+05:30  INFO 83194 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3058 ms
-2024-03-13T12:15:50.608+05:30  INFO 83194 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-13T12:15:50.728+05:30  INFO 83194 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-03-13T12:15:50.795+05:30  INFO 83194 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-03-13T12:15:51.381+05:30  INFO 83194 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-13T12:15:51.427+05:30  INFO 83194 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-13T12:15:51.934+05:30  INFO 83194 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@600bbf9e
-2024-03-13T12:15:51.938+05:30  INFO 83194 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-13T12:15:52.064+05:30  WARN 83194 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-13T12:15:54.203+05:30  INFO 83194 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-13T12:15:54.287+05:30  INFO 83194 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-13T12:15:54.834+05:30  INFO 83194 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-03-13T12:15:55.301+05:30  INFO 83194 --- [main] asyncConfig.AsyncConfig                  : Creating async Task Executor
-2024-03-13T12:15:55.373+05:30  WARN 83194 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-13T12:15:55.959+05:30  INFO 83194 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-03-13T12:15:55.976+05:30  INFO 83194 --- [main] com.crudapp.crudapp.CrudappApplication   : Started CrudappApplication in 10.225 seconds (process running for 11.48)
-2024-03-13T12:16:10.678+05:30  INFO 83194 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-13T12:16:10.681+05:30  INFO 83194 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-03-13T12:16:10.683+05:30  INFO 83194 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-03-13T12:20:05.798+05:30  INFO 83329 --- [main] com.crudapp.crudapp.CrudappApplication   : Starting CrudappApplication using Java 17.0.10 with PID 83329 (/Users/aditya2.gupta/Downloads/project/Crud_Application/target/classes started by aditya2.gupta in /Users/aditya2.gupta/Downloads/project/Crud_Application)
-2024-03-13T12:20:05.807+05:30  INFO 83329 --- [main] com.crudapp.crudapp.CrudappApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-03-13T12:20:07.677+05:30  INFO 83329 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-03-13T12:20:07.836+05:30  INFO 83329 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 3 JPA repository interfaces.
-2024-03-13T12:20:09.152+05:30  INFO 83329 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-03-13T12:20:09.180+05:30  INFO 83329 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-03-13T12:20:09.181+05:30  INFO 83329 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-03-13T12:20:09.324+05:30  INFO 83329 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-03-13T12:20:09.325+05:30  INFO 83329 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3264 ms
-2024-03-13T12:20:09.727+05:30  INFO 83329 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-03-13T12:20:09.851+05:30  INFO 83329 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-03-13T12:20:09.933+05:30  INFO 83329 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-03-13T12:20:10.505+05:30  INFO 83329 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-13T12:20:10.555+05:30  INFO 83329 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-03-13T12:20:11.079+05:30  INFO 83329 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b3fc6d8
-2024-03-13T12:20:11.083+05:30  INFO 83329 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-03-13T12:20:11.177+05:30  WARN 83329 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-03-13T12:20:13.264+05:30  INFO 83329 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-03-13T12:20:13.356+05:30  INFO 83329 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-03-13T12:20:14.073+05:30  INFO 83329 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-03-13T12:20:14.897+05:30  INFO 83329 --- [main] asyncConfig.AsyncConfig                  : Creating async Task Executor
-2024-03-13T12:20:14.980+05:30  WARN 83329 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-03-13T12:20:15.855+05:30  INFO 83329 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-03-13T12:20:15.988+05:30  INFO 83329 --- [main] com.crudapp.crudapp.CrudappApplication   : Started CrudappApplication in 11.585 seconds (process running for 12.728)
-2024-03-13T12:20:59.735+05:30  INFO 83329 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-03-13T12:20:59.737+05:30  INFO 83329 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-03-13T12:20:59.740+05:30  INFO 83329 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-03-21T11:40:11.369+05:30  INFO 62946 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ef7e4c7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57edfa89, org.springframework.security.web.context.SecurityContextHolderFilter@55a29589, org.springframework.security.web.header.HeaderWriterFilter@b867869, org.springframework.web.filter.CorsFilter@6c0bf8f4, org.springframework.security.web.csrf.CsrfFilter@6d514259, org.springframework.security.web.authentication.logout.LogoutFilter@2ffaa711, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@147892be, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1259b2a5, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@73476e2d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@377d55, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a7427f9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@155767a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52b77d5e, org.springframework.security.web.access.ExceptionTranslationFilter@2db4a84a, org.springframework.security.web.access.intercept.AuthorizationFilter@609edb55]
+2024-03-21T11:40:11.486+05:30  INFO 62946 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-03-21T11:40:11.501+05:30  INFO 62946 --- [main] com.crudapp.crudapp.CrudappApplication   : Started CrudappApplication in 12.444 seconds (process running for 13.771)
+2024-03-21T11:41:20.936+05:30  INFO 62946 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-21T11:41:20.937+05:30  INFO 62946 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-21T11:41:20.939+05:30  INFO 62946 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
