@@ -12,6 +12,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -70,10 +73,18 @@ UserController {
         }
     }
 
-    @GetMapping("/users")
-    public List<User> getAllUser()
+    @GetMapping("/getUsers")
+    public Page<User> getAllUser(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "100") int size)
     {
-        return userserviceImpl.getUser();
+        Pageable pageable= PageRequest.of(page, size);
+        return userRepo.findAll(pageable);
+
+    }
+
+    @GetMapping("/check")
+            public ResponseEntity<String> check()
+    {
+        return ResponseEntity.ok("its working");
 
     }
 
@@ -85,13 +96,18 @@ UserController {
         return user.orElse(null);
 
     }
+    @GetMapping("/fetch")
+    public ResponseEntity<String> fetchDataFromApi(@RequestParam String apiUrl) {
+        String response = userserviceImpl.fetchDataFromApi(apiUrl);
+        return ResponseEntity.ok(response);
+    }
 
 
 
     //CourseController
 
 
-    @GetMapping("/courses")
+    @GetMapping("/getcourses")
     public List<Course> getCourses()
     {
      return this.courseService.getCourses();

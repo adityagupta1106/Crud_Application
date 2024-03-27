@@ -10,14 +10,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
+
+import org.springframework.dao.DataAccessException;
+
 
 @Repository
 public class UserDaoImpl {
@@ -34,24 +40,53 @@ public class UserDaoImpl {
     private UserRepo userRepo;
 
 
-    //    public User save(User user)
-//    {
-//        String sql="INSERT INTO users (firstname,lastname, age, courseId) VALUES(?,?,?,?)";
-//        //logQuery(sql);
-//        jdbcTemplate.update(sql,user.getFirstName(),user.getLastName(),user.getAge(),user.getCourseId());
-//        auditHistory("User created",sql,user,new Object[]{user.getFirstName(),user.getLastName(),user.getAge(),user.getCourseId(),user.getId()});
-//        return user;
-//    }
+    @Transactional
+    public User save(User user) {
+        final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
+        try {
+
+            // Check if age is null
+
+            if (user.getFirstName()==null) {
+                throw new IllegalArgumentException("first name cannot be null.");
+            }
+
+            final String sql = "INSERT INTO users (firstname, lastname, age, course_id) VALUES (?, ?, ?, ?)";
+            LocalDateTime localDateTime = LocalDateTime.now(ZoneId.systemDefault());
+            user.setLastUpdatedAt(localDateTime);
+            user.setCreatedAt(localDateTime);
+           // user.setFirstName(null);
+            userRepo.save(user);
+            // Create audit history for the added user
+            List<String> params = new ArrayList<>();
+            params.add(user.getFirstName());
+            params.add(user.getLastName());
+            params.add(String.valueOf(user.getAge()));
+            params.add(String.valueOf(user.getCourseId()));
+            auditHistory("User created", sql, user.getId(), params);
+            return user;
+        } catch (DataIntegrityViolationException e) {
+            logger.error("An error occurred while saving the user to the database.", e);
+            throw e; // Re-throwing the caught exception after logging
+        } catch (IllegalArgumentException e) {
+            logger.error("Invalid user data: " + e.getMessage());
+            throw e; // Re-throwing the caught exception after logging
+        } catch (Exception e) {
+            logger.error("An unexpected error occurred while processing the user data.", e);
+            throw e; // Re-throwing the caught exception after logging
+        }
+    }
+    @Transactional
     public void update(Long userId, PutRequestBody requestBody) throws JsonProcessingException {
-        //,?> newFields= (Map<String, String>) requestBody.getFieldsToBeUpdated();
+
         FieldsToBeUpdated fieldsToBeUpdated = requestBody.getFieldsToBeUpdated();
         StringBuilder sql = new StringBuilder("UPDATE user SET ");
         StringBuilder remarks = new StringBuilder();
         List<String> params = new ArrayList<>();
-
         Map<String, String> fieldMap = objectMapper.readValue(gson.toJson(fieldsToBeUpdated), new TypeReference<Map<String, String>>() {
         });
-
         for (Map.Entry<String, String> entry : fieldMap.entrySet()) {
             String fieldName = entry.getKey();
             String updatedValue = entry.getValue();
@@ -76,33 +111,16 @@ public class UserDaoImpl {
                     params.add(updatedValue);
                     remarks.append("CourseId Changed ");
                     break;
-
             }
         }
-
         sql.append("last_updated_at=?");
-        LocalDateTime dateTime= LocalDateTime.now(ZoneId.systemDefault());
+        LocalDateTime dateTime = LocalDateTime.now(ZoneId.systemDefault());
         params.add(String.valueOf(dateTime));
-
-//        sql.setLength(sql.length() - 2);
         remarks.setLength(remarks.length());
-
         sql.append(" WHERE id =?");
         params.add(String.valueOf(userId));
         jdbcTemplate.update(sql.toString(), params.toArray());
-//        jdbcTemplate.update(sql.toString(), new PreparedStatementSetter() {
-//            @Override
-//            public void setValues(PreparedStatement ps) throws SQLException {
-//                for(int i=1;i<=params.size();i++)
-//                {
-//                    ps.setNString(i,params.get(i-1));
-//                }
-//            }
-//        });
-
-
         auditHistory(remarks.toString(), sql.toString(), userId, params);
-
     }
 
     //String name= user.getFirstName();
@@ -129,7 +147,7 @@ public class UserDaoImpl {
         userEntry.setCreatedAt(optionalUser.get().getCreatedAt());
         userEntry.setUpdatedAt(date);
         userEntry.setMetaData(metaDataBuilder.toString());
-        userEntry.setRemarks(action);
+        userEntry.setRemarks(null);
         auditHistoryRepo.save(userEntry);
     }
 }

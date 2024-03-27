@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.ZoneId;
 import java.util.List;
@@ -29,33 +30,17 @@ public class UserServiceImpl {
     private UserAuditHistoryRepo userAuditHistoryRepo;
     @Autowired
     private UserDaoImpl userDao;
+    @Autowired
+    private final RestTemplate restTemplate;
+
 
 
     public User addUser(User user) {
-        LocalDateTime localDateTime = LocalDateTime.now(ZoneId.systemDefault());
-        user.setLastUpdatedAt(localDateTime);
-        user.setCreatedAt(localDateTime);
-        userrepo.save(user);
-        // Create audit history for the added user
-        createAuditHistory(user);
-
+        userDao.save(user);
         return user;
 
     }
 
-    public void createAuditHistory(User user) {
-        // setting user audit history
-        LocalDateTime date = LocalDateTime.now(ZoneId.systemDefault());
-        UserAuditHistory userEntry = new UserAuditHistory();
-        userEntry.setUserId(user.getId());
-        userEntry.setCreatedAt(date);
-        userEntry.setUpdatedAt(date);
-        userEntry.setMetaData(null);
-        userEntry.setRemarks("New user created");
-        userAuditHistoryRepo.save(userEntry);
-
-
-    }
 
 //    public User updateUser(User user,Long userId) {
 //
@@ -85,5 +70,10 @@ public class UserServiceImpl {
     public List<User> getUser() {
         //return list;
         return userrepo.findAll();
+    }
+
+    public  String fetchDataFromApi(String apiUrl)
+    {
+        return restTemplate.getForObject(apiUrl, String.class);
     }
 }
