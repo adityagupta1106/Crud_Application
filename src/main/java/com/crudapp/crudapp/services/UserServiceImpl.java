@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.ZoneId;
 import java.util.List;
@@ -29,6 +30,9 @@ public class UserServiceImpl {
     private UserAuditHistoryRepo userAuditHistoryRepo;
     @Autowired
     private UserDaoImpl userDao;
+    @Autowired
+    private final RestTemplate restTemplate;
+
 
 
     public User addUser(User user) {
@@ -66,5 +70,10 @@ public class UserServiceImpl {
     public List<User> getUser() {
         //return list;
         return userrepo.findAll();
+    }
+
+    public  String fetchDataFromApi(String apiUrl)
+    {
+        return restTemplate.getForObject(apiUrl, String.class);
     }
 }

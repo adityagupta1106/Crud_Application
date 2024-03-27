@@ -96,6 +96,11 @@ UserController {
         return user.orElse(null);
 
     }
+    @GetMapping("/fetch")
+    public ResponseEntity<String> fetchDataFromApi(@RequestParam String apiUrl) {
+        String response = userserviceImpl.fetchDataFromApi(apiUrl);
+        return ResponseEntity.ok(response);
+    }
 
 
 
